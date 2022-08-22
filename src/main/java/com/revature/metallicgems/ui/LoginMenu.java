@@ -23,7 +23,7 @@ public class LoginMenu implements IMenu {
         exit:
         {
             while (true) {
-                System.out.println("\nWelcome to Yolp!");
+                System.out.println("\nWelcome to MetallicGems!");
                 System.out.println("[1] Login");
                 System.out.println("[2] Signup");
                 System.out.println("[x] Exit!");
