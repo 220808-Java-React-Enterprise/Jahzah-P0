@@ -6,7 +6,7 @@ public class User {
     private String password;
     private String email;
     private String id;
-    private String role;
+    private String role = "DEFAULT";
 
 
     public User() {

@@ -1,8 +1,10 @@
 package com.revature.metallicgems.ui;
 
+import com.revature.metallicgems.models.Earring;
 import com.revature.metallicgems.models.User;
 import com.revature.metallicgems.services.UserService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class MainMenu implements IMenu {
@@ -22,7 +24,7 @@ public class MainMenu implements IMenu {
         exit: {
             while (true) {
                 System.out.println("\nWelcome to the main menu " + user.getUsername() + "!");
-                System.out.println("[1] View all restaurants");
+                System.out.println("[1] View all products");
                 System.out.println("[x] Sign out!");
                 System.out.print("\nEnter: ");
 
@@ -34,6 +36,19 @@ public class MainMenu implements IMenu {
                     default:
                         System.out.println("\nInvalid input!");
                         break;
+                }
+            }
+        }
+    }
+
+    public void viewProducts(){
+        exit: {
+            while (true) {
+                System.out.println("\n Viewing all products...");
+                List<Earring> earrings = new earringService.gerAllEarrings();
+
+                for (int i = 0; i < earrings.size(); i++){
+                    System.out.println("[" + (i + 1) + "]" + earrings.get(i).getColor() + earrings.get(i).getStyle());
                 }
             }
         }

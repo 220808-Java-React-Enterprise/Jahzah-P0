@@ -70,7 +70,8 @@ public class LoginMenu implements IMenu {
                 try {
                     User user = userService.login(username, password);
                     if (user.getRole().equals("ADMIN")) new AdminMenu(user, new UserService(new UserDAO())).start();
-                    else new MainMenu(user, new UserService(new UserDAO())).start();
+                    else
+                    new MainMenu(user, new UserService(new UserDAO())).start();
                     break exit;
                 } catch (InvalidUserException e) {
                     System.out.println(e.getMessage());
@@ -121,7 +122,7 @@ public class LoginMenu implements IMenu {
 
                             userService.isValidPassword(password);
 
-                            System.out.print("\nRe eneter password: ");
+                            System.out.print("\nRe-enter password: ");
                             password2 = scan.nextLine();
 
                             userService.isSamePassword(password, password2);
