@@ -1,7 +1,9 @@
 package com.revature.metallicgems.ui;
 
+import com.revature.metallicgems.daos.EarringDAO;
 import com.revature.metallicgems.daos.UserDAO;
 import com.revature.metallicgems.models.User;
+import com.revature.metallicgems.services.EarringService;
 import com.revature.metallicgems.services.UserService;
 import com.revature.metallicgems.utils.custom_exceptions.InvalidUserException;
 
@@ -38,7 +40,7 @@ public class LoginMenu implements IMenu {
                     case "2":
                         User user = signup();
                         userService.register(user);
-                        new MainMenu(user, new UserService(new UserDAO())).start();
+                        new MainMenu(user, new UserService(new UserDAO()), new EarringService(new EarringDAO())).start();
                         break;
                     case "x":
                         System.out.println("\nGoodbye!");
@@ -71,7 +73,7 @@ public class LoginMenu implements IMenu {
                     User user = userService.login(username, password);
                     if (user.getRole().equals("ADMIN")) new AdminMenu(user, new UserService(new UserDAO())).start();
                     else
-                    new MainMenu(user, new UserService(new UserDAO())).start();
+                    new MainMenu(user, new UserService(new UserDAO()), new EarringService(new EarringDAO())).start();
                     break exit;
                 } catch (InvalidUserException e) {
                     System.out.println(e.getMessage());

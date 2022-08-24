@@ -1,6 +1,7 @@
 package com.revature.metallicgems.models;
 
 public class Earring {
+    private String id;
     private int quantity;
     private String style;
     private String metal;
@@ -12,13 +13,22 @@ public class Earring {
 
     }
 
-    public Earring(int quantity, String style, String metal, String color, String order_id, String warehouse_id) {
+    public Earring(String id, int quantity, String style, String metal, String color, String order_id, String warehouse_id) {
+        this.id =  id;
         this.quantity = quantity;
         this.style = style;
         this.metal = metal;
         this.color = color;
         this.order_id = order_id;
         this.warehouse_id = warehouse_id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getColor() {
@@ -72,7 +82,8 @@ public class Earring {
     @Override
     public String toString() {
         return "Earring{" +
-                "quantity=" + quantity +
+                "id='" + id + '\'' +
+                ", quantity=" + quantity +
                 ", style='" + style + '\'' +
                 ", metal='" + metal + '\'' +
                 ", color='" + color + '\'' +
@@ -80,4 +91,6 @@ public class Earring {
                 ", warehouse_id='" + warehouse_id + '\'' +
                 '}';
     }
+
+
 }
